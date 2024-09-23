@@ -42,6 +42,7 @@ void* thread_function(void* threadpool){
         pool->queue_front = (pool->queue_front + 1) % QUEUE_SIZE;
         pool->queue_size --;
 
+
         pthread_mutex_unlock(&(pool->lock));
         // Execute task.
         (*(task.fn))(task.arg);
